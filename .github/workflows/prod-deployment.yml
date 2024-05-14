@@ -23,16 +23,16 @@ jobs:
     defaults:
       run:
         shell: bash
-  steps:
-    # Checkout the repository to the GitHub Actions runner
-    - name: Checkout
-      uses: actions/checkout@v3
-        # Install the preferred version of Terraform CLI
-    - name: Setup Terraform
-      uses: hashicorp/setup-terraform@v3
-      with:
-        terraform_version: "1.8.3"
-        # Run Terraform apply
-    - name: Terraform Apply
-      id: apply
-      run: terraform apply -var-file="prod.tfvars" -auto-approve
+    steps:
+      # Checkout the repository to the GitHub Actions runner
+      - name: Checkout
+        uses: actions/checkout@v3
+          # Install the preferred version of Terraform CLI
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: "1.8.3"
+          # Run Terraform apply
+      - name: Terraform Apply
+        id: apply
+        run: terraform apply -var-file="prod.tfvars" -auto-approve
