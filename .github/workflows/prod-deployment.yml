@@ -33,6 +33,10 @@ jobs:
         with:
           terraform_version: "1.8.3"
           # Run Terraform apply
+      # Run Terraform init
+      - name: Terraform Init
+        id: init
+        run: terraform init -backend-config="key=prod.tfstate"
       - name: Terraform Apply
         id: apply
         run: terraform apply -var-file="prod.tfvars" -auto-approve
